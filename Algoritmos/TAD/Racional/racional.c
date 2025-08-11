@@ -30,7 +30,7 @@ Racional *criar(int num, int den){
     }
 
     racional->num = num;
-    racional->den = den
+    racional->den = den;
     return racional;
 }
 
@@ -41,5 +41,5 @@ Racional *somar(Racional *r1, Racional *r2){
     if(r1->den == r2->den){
         resultado->den = r1.den;
     }
-    resultado.num = (r1.num * coef + r2.num;
+
 }
