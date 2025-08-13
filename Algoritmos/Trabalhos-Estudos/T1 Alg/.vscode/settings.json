@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "circulo.h": "c",
+        "stdio.h": "c"
+    }
+}
