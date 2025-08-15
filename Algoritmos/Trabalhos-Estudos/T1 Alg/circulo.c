@@ -11,16 +11,15 @@ struct circulo_
     float raio;
 };
 
-CIRCULO *circulo_criar(int x, int y, float raio)
+CIRCULO *circulo_criar(float x, float y, float raio)
 {
     PONTO *centro = ponto_criar(x, y);
     CIRCULO *c;
-    if ((c = (CIRCULO *)calloc(1, sizeof(CIRCULO))) == NULL)
+    if ((c = (CIRCULO *)calloc(1, sizeof(CIRCULO))) != NULL)
     {
-        return NULL;
+        c->p = centro;
+        c->raio = raio;
     }
-    c->p = centro;
-    c->raio = raio;
 
     return c;
 }
@@ -53,12 +52,26 @@ float distancia(PONTO *p, CIRCULO *c)
 {
     float x, y, distanciaTotal;
 
-    x = (p->x) - (c->p->x);
-    y = (p->y) - (c->p->y);
+    x = ponto_getX(p) - circulo_getX(c);
+    y = ponto_getY(p) - circulo_getY(c);
 
     x *= x;
     y *= y;
 
     distanciaTotal = sqrt(x + y);
     return distanciaTotal;
+}
+
+float circulo_getX(CIRCULO *c){
+    float x = ponto_getX(c->p);
+    return x;
+}
+
+float circulo_getY(CIRCULO *c){
+    float y = ponto_getY(c->p);
+    return y;
+}
+
+float circulo_getRaio(CIRCULO *c){
+    return c->raio;
 }

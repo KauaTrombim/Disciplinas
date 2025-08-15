@@ -20,11 +20,12 @@ PONTO *ponto_criar(float x, float y)
     return p;
 }
 
-void ponto_apagar(PONTO *p)
+void ponto_apagar(PONTO **p)
 {
-    if (p != NULL)
+    if (*p != NULL)
     {
-        free(p);
+        free(*p);
+        *p = NULL;
     }
 }
 
@@ -37,4 +38,12 @@ bool ponto_set(PONTO *p, float x, float y)
 
         return p;
     }
+}
+
+float ponto_getX(PONTO *p){
+    return p->x;
+}
+
+float ponto_getY(PONTO *p){
+    return p->y;
 }
