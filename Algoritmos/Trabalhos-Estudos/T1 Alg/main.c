@@ -2,7 +2,8 @@
 #include "ponto.h"
 #include "circulo.h"
 
-int main(){
+int main()
+{
     int xP, yP;
     int xCirc, yCirc, rCirc;
 
@@ -10,9 +11,7 @@ int main(){
     printf("%f %f %f", &xCirc, &yCirc, &rCirc);
 
     PONTO *p = ponto_criar(xP, yP);
-    PONTO *centroCirc = ponto_criar(xCirc, yCirc);
-    CIRCULO *circ = circulo_criar(centroCirc, rCirc);
+    CIRCULO *circ = circulo_criar(xCirc, yCirc, rCirc);
 
-    
     return 0;
 }
